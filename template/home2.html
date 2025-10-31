@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .navbar {
+        overflow: hidden;
+        background-color: #1d1919;
+        padding: 16px 20px;
+    }
+
+    .navbar .title {
+        float: left;
+        color: white;
+        font-size: larger;
+    }
+
+    .navbar .button {
+        float: right;
+        color: white;
+        padding-left: 30px;
+        font-size: large;
+    }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+<a class="title" >Task Management</a>
+<a class="button" href="{% url 'signin_view' %}">Sign In</a>
+<a class="button" href="{% url 'login_view' %}">Login</a>
+</div>
+
+</body>
+</html>

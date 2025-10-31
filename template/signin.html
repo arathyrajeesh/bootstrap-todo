@@ -1,0 +1,139 @@
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign Up</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #94c3f3, #ffffff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .signup-box {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 520px;
+        box-sizing: border-box;
+    }
+
+    .signup-box h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+    }
+
+    .signup-box label {
+        display: block;
+        margin: 15px 0 5px;
+        font-weight: 600;
+        color: #444;
+    }
+
+    .signup-box input[type="text"],
+    .signup-box input[type="password"],
+    .signup-box input[type="tel"],
+    .signup-box textarea,
+    .signup-box input[type="file"] {
+        width: 100%;
+        padding: 10px 12px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-size: 15px;
+        transition: border 0.3s;
+    }
+
+    .signup-box input[type="text"]:focus,
+    .signup-box input[type="password"]:focus,
+    .signup-box input[type="tel"]:focus,
+    .signup-box textarea:focus {
+        border-color: #28a745;
+        outline: none;
+
+    }
+
+    .signup-box input[type="file"] {
+        padding: 6px;
+    }
+
+    .signup-box input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        margin-top: 25px;
+        background-color: #28a745;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .signup-box input[type="submit"]:hover {
+        background-color: #218838;
+    }
+
+    @media (max-width: 480px) {
+        .signup-box {
+            padding: 30px 20px;
+            margin: 20px;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<form class="signup-box" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2>Sign Up</h2>
+
+    <label for="first_name">First Name</label>
+    <!-- <input type="text" id="first_name" name="first_name" required> -->
+    {% render_field userForm.first_name %}
+
+    <label for="last_name">Last Name</label>
+    <!-- <input type="text" id="last_name" name="last_name" required> -->
+    {% render_field userForm.last_name %}
+
+    <label for="username">Username</label>
+    <!-- <input type="text" id="username" name="username" required> -->
+    {% render_field userForm.username %}
+
+    <label for="password">Password</label>
+    <!-- <input type="password" id="password" name="password" required> -->
+    {% render_field userForm.password %}
+
+    <label for="address">Address</label>
+    <!-- <textarea id="address" name="address" rows="3" required></textarea> -->
+    {% render_field customerForm.address %}
+
+    <label for="mobile">Mobile</label>
+    <!-- <input type="tel" id="mobile" name="mobile" required> -->
+    {% render_field customerForm.mobile %}
+
+    <label for="image">Profile Image</label>
+        <!-- <input type="file" id="image" name="image" accept="image/*" required> -->
+    {% render_field customerForm.image %}
+
+    <input type="submit" value="Sign Up">
+    <p style="text-align: center; margin-top: 20px; color: #555;">
+        Already have an account?
+        <a href="{% url 'login_view' %}" style="color: #007bff; text-decoration: none;">Login here</a>
+    </p>
+</form>
+
+</body>
+</html>
